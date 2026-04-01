@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { FlagDisplay } from '../components/FlagDisplay';
+import { FlagDisplay } from '../components/FlagImage';
 import { FeedbackOverlay } from '../components/FeedbackOverlay';
 import { GameHeader } from '../components/GameHeader';
 import { FLAGS_FOR_COMPARE, FLAG_BY_ID, pickRandom } from '../data/flags';
