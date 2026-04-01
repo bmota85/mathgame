@@ -3,7 +3,7 @@ import { FlagDisplay } from '../components/FlagImage';
 import { NumberPad } from '../components/NumberPad';
 import { FeedbackOverlay } from '../components/FeedbackOverlay';
 import { GameHeader } from '../components/GameHeader';
-import { FLAGS_FOR_ADDITION, FLAG_BY_ID, pickRandom } from '../data/flags';
+import { FLAGS_FOR_ADDITION, FLAG_BY_ID, pickUnique as pickRandom } from '../data/flags';
 import { useSound } from '../hooks/useSound';
 import type { SessionStats, Level, Flag } from '../types';
 

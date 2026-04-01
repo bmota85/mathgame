@@ -283,3 +283,20 @@ export function pickRandom<T>(arr: T[], n: number): T[] {
   const shuffled = [...arr].sort(() => Math.random() - 0.5);
   return shuffled.slice(0, n);
 }
+
+// ── Anti-repeat queue ─────────────────────────────────────────────────────────
+// Keeps the last N used IDs and avoids picking them again
+const recentIds: string[] = [];
+const AVOID_LAST = 8;
+
+export function pickUnique<T extends { id: string }>(arr: T[], n: number): T[] {
+  const available = arr.filter(f => !recentIds.includes(f.id));
+  const pool = available.length >= n ? available : arr;
+  const shuffled = [...pool].sort(() => Math.random() - 0.5);
+  const picked = shuffled.slice(0, n);
+  picked.forEach(p => {
+    recentIds.push(p.id);
+    if (recentIds.length > AVOID_LAST) recentIds.shift();
+  });
+  return picked;
+}
